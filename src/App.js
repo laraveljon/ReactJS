@@ -21,6 +21,26 @@ class Hello4 extends Component{
     }
 }
 
+class Text extends Component{
+    render(){
+        const textoSegundobool = this.props.boolean2 ? 'Cierto' : 'Falso'
+        const arrayOfNumbers2 = this.props.arrayOfNumbers2.map(n =>  n *2)
+        return(
+            <div>
+               <h2>{this.props.text}</h2>
+               <h2>{this.props.number}</h2>
+               <p>{JSON.stringify(this.props.boolean)}</p>
+               <p>{textoSegundobool}</p>
+               <p>{this.props.arrayOfNumbers.join('-')}</p>
+               <p>{arrayOfNumbers2.join('-')}</p>
+               <p>{this.props.objeto.key}</p>
+            </div>
+        )
+         
+    }
+}
+
+
 /*function Img(props){
     return <img src='.../../../public/img/001.png'></img>
 }*/
@@ -38,7 +58,19 @@ class App extends Component {
                 <Hello/>
                 <Hello2 title='Hello from props' />
                 <Hello3 title="Otro componente"></Hello3>
+           
                 <Hello4 title="Componente con clase"></Hello4>
+                <Text   arrayOfNumbers={[1,2,25,58]}
+                        arrayOfNumbers2={[1,2,25,58]}
+                        objeto = {{key:"value On", key2 :"value OFF"}}
+                        number={18} 
+                        text="Componente 4" 
+                        boolean={true}  
+                        boolean2
+                        >
+               </Text>
+                
+                
           
            
           </div>
